@@ -57,12 +57,13 @@ func SetupRouter(b BuildInfo) *fasthttprouter.Router {
 
 	buildInfo = b
 
-	// 日志服务
-	logCtl := new(controller.LogController)
+	// 用户服务
+	userCtl := new(controller.UserController)
 
 	get("/log/td/version", Version)
-	// 日志查询
-	get("/log/td/list", logCtl.List)
+
+	// 注册用户
+	get("/user/reg", userCtl.Reg)
 	return router
 }
 
